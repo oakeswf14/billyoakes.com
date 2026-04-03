@@ -23,28 +23,39 @@
             height: 60px;
         }
 
-        /* Navigation */
-        #nav {
+        /* Layout: sidebar + main content */
+        #content-wrapper {
+            display: flex;
+            min-height: calc(100vh - 140px); /* adjust for header + footer */
+        }
+
+        /* Sidebar with dropdown navigation */
+        #sidebar {
+            width: 220px;
             background-color: #003366;
-            padding: 10px 20px;
-        }
-
-        #nav a {
             color: #ffffff;
-            text-decoration: none;
-            margin-right: 15px;
-            font-weight: bold;
-            padding: 5px 10px;
+            padding: 15px 10px;
+            box-sizing: border-box;
         }
 
-        #nav a:hover {
-            background-color: #0055aa;
+        #sidebar h2 {
+            font-size: 1.1em;
+            margin: 0 0 10px;
+            color: #ffffff;
+        }
+
+        #nav-select {
+            width: 100%;
+            padding: 5px;
+            font-size: 0.95em;
         }
 
         /* Main Content */
         #main {
+            flex: 1;
             display: flex;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         #blurb {
@@ -84,6 +95,14 @@
             border-top: 1px solid #ccc;
         }
     </style>
+    <script>
+        function goToPage(select) {
+            var url = select.value;
+            if (url) {
+                window.location.href = url;
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -94,52 +113,54 @@
         <img src="images/yw.jpg" alt="Member of Yachtworld Logo">
     </div>
 
-    <!-- Navigation bar -->
-    <div id="nav">
-        <a href="index.html">Home</a>
-        <a href="brokerage-sailboats.html">Brokerage Sailboats</a>
-        <a href="brokerage-powerboats.html">Brokerage Power Boats</a>
-        <a href="our-story.html">Our Story</a>
-        <a href="for-buyers.html">For Buyers</a>
-        <a href="for-sellers.html">For Sellers</a>
-        <a href="faq.html">FAQ</a>
-        <a href="links.html">Links</a>
-        <a href="crowleys.html">Crowley's</a>
-    </div>
-
-    <!-- Main content area -->
-    <div id="main">
-        <!-- Blurb text -->
-        <div id="blurb">
-            <p>
-                Welcome to Sailboat Sales Co., Chicago's largest and oldest yacht brokerage, associated with Crowley's Yacht Yard - Chicago's finest full-service boatyard. As a result, we provide a comprehensive approach to selecting and outfitting your new yacht.
-            </p>
-            <p>
-                Looking to buy a used boat? Sailboat Sales Co. is proud to offer an extensive selection of used boats for sale in Chicago, Illinois, Lake Michigan, the Great Lakes, and the USA.
-            </p>
-            <p>
-                Start shopping for a <a href="brokerage-sailboats.html">sailboat</a> or a <a href="brokerage-powerboats.html">powerboat</a> today!
-            </p>
-            <p>
-                Looking to sell your boat and move up? Now is the right time to list. Let Sailboat Sales Co. assist you in finding a buyer for your boat. Call (773) 221-8880 to get started today.
-            </p>
+    <div id="content-wrapper">
+        <!-- Sidebar with dropdown navigation -->
+        <div id="sidebar">
+            <h2>Navigation</h2>
+            <select id="nav-select" onchange="goToPage(this)">
+                <option value="">Select a page...</option>
+                <option value="index.html">Home</option>
+                <option value="brokerage-sailboats.html">Brokerage Sailboats</option>
+                <option value="brokerage-powerboats.html">Brokerage Power Boats</option>
+                <option value="our-story.html">Our Story</option>
+                <option value="for-buyers.html">For Buyers</option>
+                <option value="for-sellers.html">For Sellers</option>
+                <option value="faq.html">FAQ</option>
+                <option value="links.html">Links</option>
+                <option value="crowleys.html">Crowley's</option>
+            </select>
         </div>
 
-        <!-- Crowley's image -->
-        <div id="crowleys-image">
-            <img src="images/Crowleys.jpg" alt="Crowley's Yacht Yard">
-        </div>
-    </div>
+        <!-- Main content area -->
+        <div style="flex: 1; display: flex; flex-direction: column;">
+            <div id="main">
+                <!-- Blurb text -->
+                <div id="blurb">
+                    <p>
+                        Welcome to Sailboat Sales Co., Chicago's largest and oldest yacht brokerage, associated with Crowley's Yacht Yard - Chicago's finest full-service boatyard. As a result, we provide a comprehensive approach to selecting and outfitting your new yacht.
+                    </p>
+                    <p>
+                        Looking to buy a used boat? Sailboat Sales Co. is proud to offer an extensive selection of used boats for sale in Chicago, Illinois, Lake Michigan, the Great Lakes, and the USA.
+                    </p>
+                    <p>
+                        Start shopping for a <a href="brokerage-sailboats.html">sailboat</a> or a <a href="brokerage-powerboats.html">powerboat</a> today!
+                    </p>
+                    <p>
+                        Looking to sell your boat and move up? Now is the right time to list. Let Sailboat Sales Co. assist you in finding a buyer for your boat. Call (773) 221-8880 to get started today.
+                    </p>
+                </div>
 
-    <!-- Brokers placeholder section -->
-    <div id="brokers">
-        <!-- Space for broker pictures and contact info -->
-        <!-- Example structure (remove or replace with real content):
-        <div class="broker">
-            <img src="images/broker1.jpg" alt="Broker Name">
-            <p>Broker Name<br>Phone: xxx-xxx-xxxx<br>Email: broker@example.com</p>
+                <!-- Crowley's image -->
+                <div id="crowleys-image">
+                    <img src="images/Crowleys.jpg" alt="Crowley's Yacht Yard">
+                </div>
+            </div>
+
+            <!-- Brokers placeholder section -->
+            <div id="brokers">
+                <!-- Space for broker pictures and contact info -->
+            </div>
         </div>
-        -->
     </div>
 
     <!-- Footer -->
