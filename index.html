@@ -46,17 +46,10 @@
             align-items: center;
         }
 
+        /* Main logo bigger */
         #main-logo {
             height: 80px;
             margin-right: 16px;
-        }
-
-        .assoc-logo {
-            height: 52px;
-            margin-right: 10px;
-            border-radius: 4px;
-            background: rgba(255,255,255,0.1);
-            padding: 3px;
         }
 
         #header-text {
@@ -225,7 +218,6 @@
             font-size: 0.75rem;
         }
 
-        /* Links inside text */
         a {
             color: var(--primary);
         }
@@ -233,7 +225,6 @@
             color: var(--primary-dark);
         }
 
-        /* Brokers section */
         #brokers {
             margin-top: 24px;
             padding: 18px 20px 24px;
@@ -255,7 +246,21 @@
             color: var(--text-muted);
         }
 
-        /* Footer */
+        /* Association logos moved near footer */
+        #assoc-logos {
+            max-width: 1100px;
+            margin: 12px auto 0 auto;
+            padding: 0 20px 12px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            align-items: center;
+        }
+
+        #assoc-logos img {
+            height: 52px;
+        }
+
         #footer {
             background: #0b1727;
             color: rgba(255,255,255,0.85);
@@ -263,7 +268,7 @@
             padding: 14px 10px 16px;
             font-size: 0.85em;
             border-top: 1px solid rgba(148,163,184,0.3);
-            margin-top: 24px;
+            margin-top: 12px;
         }
 
         #footer div + div {
@@ -271,7 +276,6 @@
             color: rgba(148,163,184,0.9);
         }
 
-        /* Responsive tweaks */
         @media (max-width: 768px) {
             #header {
                 flex-direction: column;
@@ -307,9 +311,8 @@
     <!-- Header -->
     <div id="header">
         <div id="header-left">
+            <!-- Only the main company logo stays at the top now -->
             <img id="main-logo" src="images/logo.gif" alt="Sailboat Sales Co. Logo">
-            <img class="assoc-logo" src="images/yba.jpg" alt="Yacht Brokers Association Crest">
-            <img class="assoc-logo" src="images/yw.jpg" alt="Member of Yachtworld Logo">
             <div id="header-text">
                 <h1>Sailboat Sales Co.</h1>
                 <span>Chicago's largest and oldest yacht brokerage</span>
@@ -375,6 +378,12 @@
                 You can showcase each broker here with a headshot, phone number, and email.
             </p>
         </div>
+    </div>
+
+    <!-- Association logos moved below brokers and above footer -->
+    <div id="assoc-logos">
+        <img src="images/yba.jpg" alt="Yacht Brokers Association Crest">
+        <img src="images/yw.jpg" alt="Member of Yachtworld Logo">
     </div>
 
     <!-- Footer -->
