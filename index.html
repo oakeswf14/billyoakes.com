@@ -10,49 +10,42 @@
             padding: 0;
         }
 
-        /* Header */
+        /* Header with logos and dropdown nav on top right */
         #header {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             padding: 10px 20px;
             border-bottom: 1px solid #ccc;
         }
 
-        #header img {
+        #header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        #header-left img {
             margin-right: 10px;
             height: 60px;
         }
 
-        /* Layout: sidebar + main content */
-        #content-wrapper {
-            display: flex;
-            min-height: calc(100vh - 140px); /* adjust for header + footer */
+        #header-right {
+            text-align: right;
         }
 
-        /* Sidebar with dropdown navigation */
-        #sidebar {
-            width: 220px;
-            background-color: #003366;
-            color: #ffffff;
-            padding: 15px 10px;
-            box-sizing: border-box;
-        }
-
-        #sidebar h2 {
-            font-size: 1.1em;
-            margin: 0 0 10px;
-            color: #ffffff;
+        #header-right label {
+            color: #333;
+            font-size: 0.9em;
+            margin-right: 5px;
         }
 
         #nav-select {
-            width: 100%;
             padding: 5px;
             font-size: 0.95em;
         }
 
-        /* Main Content */
+        /* Main Content layout */
         #main {
-            flex: 1;
             display: flex;
             padding: 20px;
             box-sizing: border-box;
@@ -106,17 +99,15 @@
 </head>
 <body>
 
-    <!-- Header with logos -->
+    <!-- Header with logos (left) and dropdown navigation (right) -->
     <div id="header">
-        <img src="images/logo.gif" alt="Sailboat Sales Co. Logo">
-        <img src="images/yba.jpg" alt="Yacht Brokers Association Crest">
-        <img src="images/yw.jpg" alt="Member of Yachtworld Logo">
-    </div>
-
-    <div id="content-wrapper">
-        <!-- Sidebar with dropdown navigation -->
-        <div id="sidebar">
-            <h2>Navigation</h2>
+        <div id="header-left">
+            <img src="images/logo.gif" alt="Sailboat Sales Co. Logo">
+            <img src="images/yba.jpg" alt="Yacht Brokers Association Crest">
+            <img src="images/yw.jpg" alt="Member of Yachtworld Logo">
+        </div>
+        <div id="header-right">
+            <label for="nav-select">Navigation:</label>
             <select id="nav-select" onchange="goToPage(this)">
                 <option value="">Select a page...</option>
                 <option value="index.html">Home</option>
@@ -130,37 +121,35 @@
                 <option value="crowleys.html">Crowley's</option>
             </select>
         </div>
+    </div>
 
-        <!-- Main content area -->
-        <div style="flex: 1; display: flex; flex-direction: column;">
-            <div id="main">
-                <!-- Blurb text -->
-                <div id="blurb">
-                    <p>
-                        Welcome to Sailboat Sales Co., Chicago's largest and oldest yacht brokerage, associated with Crowley's Yacht Yard - Chicago's finest full-service boatyard. As a result, we provide a comprehensive approach to selecting and outfitting your new yacht.
-                    </p>
-                    <p>
-                        Looking to buy a used boat? Sailboat Sales Co. is proud to offer an extensive selection of used boats for sale in Chicago, Illinois, Lake Michigan, the Great Lakes, and the USA.
-                    </p>
-                    <p>
-                        Start shopping for a <a href="brokerage-sailboats.html">sailboat</a> or a <a href="brokerage-powerboats.html">powerboat</a> today!
-                    </p>
-                    <p>
-                        Looking to sell your boat and move up? Now is the right time to list. Let Sailboat Sales Co. assist you in finding a buyer for your boat. Call (773) 221-8880 to get started today.
-                    </p>
-                </div>
-
-                <!-- Crowley's image -->
-                <div id="crowleys-image">
-                    <img src="images/Crowleys.jpg" alt="Crowley's Yacht Yard">
-                </div>
-            </div>
-
-            <!-- Brokers placeholder section -->
-            <div id="brokers">
-                <!-- Space for broker pictures and contact info -->
-            </div>
+    <!-- Main content area -->
+    <div id="main">
+        <!-- Blurb text -->
+        <div id="blurb">
+            <p>
+                Welcome to Sailboat Sales Co., Chicago's largest and oldest yacht brokerage, associated with Crowley's Yacht Yard - Chicago's finest full-service boatyard. As a result, we provide a comprehensive approach to selecting and outfitting your new yacht.
+            </p>
+            <p>
+                Looking to buy a used boat? Sailboat Sales Co. is proud to offer an extensive selection of used boats for sale in Chicago, Illinois, Lake Michigan, the Great Lakes, and the USA.
+            </p>
+            <p>
+                Start shopping for a <a href="brokerage-sailboats.html">sailboat</a> or a <a href="brokerage-powerboats.html">powerboat</a> today!
+            </p>
+            <p>
+                Looking to sell your boat and move up? Now is the right time to list. Let Sailboat Sales Co. assist you in finding a buyer for your boat. Call (773) 221-8880 to get started today.
+            </p>
         </div>
+
+        <!-- Crowley's image -->
+        <div id="crowleys-image">
+            <img src="images/Crowleys.jpg" alt="Crowley's Yacht Yard">
+        </div>
+    </div>
+
+    <!-- Brokers placeholder section -->
+    <div id="brokers">
+        <!-- Space for broker pictures and contact info -->
     </div>
 
     <!-- Footer -->
