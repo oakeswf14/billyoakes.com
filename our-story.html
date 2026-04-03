@@ -127,6 +127,21 @@
             color: var(--text-main);
         }
 
+        /* Image styling */
+        .story-image {
+            width: 100%;
+            border-radius: 12px;
+            margin: 14px 0 18px;
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+        }
+
+        .story-caption {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: -10px 0 18px;
+        }
+
         a {
             color: var(--primary);
             text-decoration: underline;
@@ -171,7 +186,6 @@
             }
         }
 
-        // keep navigation selection in sync if desired
         document.addEventListener('DOMContentLoaded', function () {
             var nav = document.getElementById('nav-select');
             if (nav) {
@@ -213,6 +227,16 @@
         <div id="story-card">
             <h2>Our Story</h2>
 
+            <!-- First image: aerial view near the beginning -->
+            <img
+                src="images/our-story1.jpg"
+                alt="Aerial view of Crowley's Yacht Yard in Chicago"
+                class="story-image"
+            >
+            <div class="story-caption">
+                Aerial view of Crowley's Yacht Yard, home to Sailboat Sales Co.
+            </div>
+
             <p>
                 Sailboat Sales Co. was founded in the mid 1960's and has been in continuous operation ever since.
                 The present management team, headed by Bruce Rosenzweig, began full-time operation in 1974, working
@@ -222,7 +246,7 @@
             </p>
 
             <p>
-                At the very beginning, 
+                At the very beginning,
                 <a href="https://crowleys.com/" target="_blank" rel="noopener noreferrer">Crowley's Yacht Yard</a>
                 stored and serviced over 250 sailboats. At that time, Sailboat Sales Co. was a major dealer for
                 Florida-based Irwin Yachts, Hunter Marine, Morgan Yachts, and the Texas-built Petersen 34 racer/cruiser.
@@ -235,12 +259,21 @@
                 of traditional Island Packet cruising yachts.
             </p>
 
+            <!-- Second image: boats preparing to launch, later in the story -->
+            <img
+                src="images/our-story2.jpg"
+                alt="Boats at Crowley's Yacht Yard preparing to launch for the season"
+                class="story-image"
+            >
+            <div class="story-caption">
+                Boats at Crowley's Yacht Yard preparing to launch for the season.
+            </div>
+
             <p>
                 Sailboat Sales Co. went on to represent the finest American-built sailboats available such as
                 Island Packet Yachts and the Carroll Marine-built Farr designed Mumm 30. Sailboat Sales Co. continues
-                to represent a wide variety of 
-                <a href="brokerage-sailboats.html">pre-owned brokerage boat</a>
-                s, with a large selection right here at Crowley's.
+                to represent a wide variety of
+                <a href="brokerage-sailboats.html">pre-owned brokerage boat</a>s, with a large selection right here at Crowley's.
             </p>
 
             <p>
@@ -250,7 +283,7 @@
             </p>
 
             <p>
-                Read an article called 
+                Read an article called
                 <a href="pdf/rehabforraceboats.pdf" target="_blank" rel="noopener noreferrer">Rehab for Raceboats</a>
                 from the May 2009 issue of Sailing World magazine.
             </p>
