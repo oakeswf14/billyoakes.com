@@ -1,41 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>Billy Oakes</title>
-    <meta name="viewport" content="width=device-width, initial-scale+1.0">
+    <title>Sailboat Sales Co. - Chicago Yacht Brokerage</title>
     <style>
-      body {
-        margin:0;
-        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-        background-color: #f5f5f5;
-        color: #111;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-      }
-      h1 {
-        font-size: 3rem;
-        margin-bottom: 0.5rem;
-      }
-      p {
-        font-size: 1.2rem;
-        color: #555;
-      }
-      a {
-        color: #0077cc;
-        text-decoration: none;
-        font-weight: 600;
-      }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        #header {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #header img {
+            margin-right: 10px;
+            height: 60px;
+        }
+
+        /* Navigation */
+        #nav {
+            background-color: #003366;
+            padding: 10px 20px;
+        }
+
+        #nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+
+        #nav a:hover {
+            background-color: #0055aa;
+        }
+
+        /* Main Content */
+        #main {
+            display: flex;
+            padding: 20px;
+        }
+
+        #blurb {
+            flex: 2;
+            padding-right: 20px;
+        }
+
+        #blurb p {
+            line-height: 1.5;
+        }
+
+        #crowleys-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        #crowleys-image img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+        }
+
+        /* Brokers section placeholder */
+        #brokers {
+            border-top: 1px solid #ccc;
+            margin: 20px;
+            padding-top: 20px;
+            min-height: 150px; /* space for pictures & contact info */
+        }
+
+        /* Footer */
+        #footer {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9em;
+            border-top: 1px solid #ccc;
+        }
     </style>
-  </head>
-  <body>
-    <div>
-      <h1>Billy Oakes</h1>
-      <p>Welcome to My Website</p>
-      <p><a href="billyoakes0@gmail.com">Contact Me</a></p>
+</head>
+<body>
+
+    <!-- Header with logos -->
+    <div id="header">
+        <img src="images/logo.gif" alt="Sailboat Sales Co. Logo">
+        <img src="images/yba.jpg" alt="Yacht Brokers Association Crest">
+        <img src="images/yw.jpg" alt="Member of Yachtworld Logo">
     </div>
-  </body>
+
+    <!-- Navigation bar -->
+    <div id="nav">
+        <a href="index.html">Home</a>
+        <a href="brokerage-sailboats.html">Brokerage Sailboats</a>
+        <a href="brokerage-powerboats.html">Brokerage Power Boats</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="for-buyers.html">For Buyers</a>
+        <a href="for-sellers.html">For Sellers</a>
+        <a href="faq.html">FAQ</a>
+        <a href="links.html">Links</a>
+        <a href="crowleys.html">Crowley's</a>
+    </div>
+
+    <!-- Main content area -->
+    <div id="main">
+        <!-- Blurb text -->
+        <div id="blurb">
+            <p>
+                Welcome to Sailboat Sales Co., Chicago's largest and oldest yacht brokerage, associated with Crowley's Yacht Yard - Chicago's finest full-service boatyard. As a result, we provide a comprehensive approach to selecting and outfitting your new yacht.
+            </p>
+            <p>
+                Looking to buy a used boat? Sailboat Sales Co. is proud to offer an extensive selection of used boats for sale in Chicago, Illinois, Lake Michigan, the Great Lakes, and the USA.
+            </p>
+            <p>
+                Start shopping for a <a href="brokerage-sailboats.html">sailboat</a> or a <a href="brokerage-powerboats.html">powerboat</a> today!
+            </p>
+            <p>
+                Looking to sell your boat and move up? Now is the right time to list. Let Sailboat Sales Co. assist you in finding a buyer for your boat. Call (773) 221-8880 to get started today.
+            </p>
+        </div>
+
+        <!-- Crowley's image -->
+        <div id="crowleys-image">
+            <img src="images/Crowleys.jpg" alt="Crowley's Yacht Yard">
+        </div>
+    </div>
+
+    <!-- Brokers placeholder section -->
+    <div id="brokers">
+        <!-- Space for broker pictures and contact info -->
+        <!-- Example structure (remove or replace with real content):
+        <div class="broker">
+            <img src="images/broker1.jpg" alt="Broker Name">
+            <p>Broker Name<br>Phone: xxx-xxx-xxxx<br>Email: broker@example.com</p>
+        </div>
+        -->
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <div>Sailboat Sales Co - 3434 E. 95th St - Chicago Illinois 60617 - Phone 773.221.8880</div>
+        <div>All Rights Reserved, ©1996 - 2026 Sailboat Sales Co.</div>
+    </div>
+
+</body>
 </html>
