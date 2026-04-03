@@ -24,9 +24,16 @@
             align-items: center;
         }
 
-        #header-left img {
+        /* Make the main logo larger */
+        #main-logo {
+            height: 80px;          /* bigger logo */
             margin-right: 10px;
-            height: 60px;
+        }
+
+        /* Make the association logos smaller */
+        .assoc-logo {
+            height: 50px;          /* smaller than main logo */
+            margin-right: 10px;
         }
 
         #header-right {
@@ -102,9 +109,9 @@
     <!-- Header with logos (left) and dropdown navigation (right) -->
     <div id="header">
         <div id="header-left">
-            <img src="images/logo.gif" alt="Sailboat Sales Co. Logo">
-            <img src="images/yba.jpg" alt="Yacht Brokers Association Crest">
-            <img src="images/yw.jpg" alt="Member of Yachtworld Logo">
+            <img id="main-logo" src="images/logo.gif" alt="Sailboat Sales Co. Logo">
+            <img class="assoc-logo" src="images/yba.jpg" alt="Yacht Brokers Association Crest">
+            <img class="assoc-logo" src="images/yw.jpg" alt="Member of Yachtworld Logo">
         </div>
         <div id="header-right">
             <label for="nav-select">Navigation:</label>
