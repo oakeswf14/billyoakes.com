@@ -4,19 +4,41 @@
     <meta charset="UTF-8">
     <title>Sailboat Sales Co. - Chicago Yacht Brokerage</title>
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
+        :root {
+            --primary: #005b96;      /* deep nautical blue */
+            --primary-dark: #00416b;
+            --accent: #f4b400;       /* warm accent */
+            --bg: #f5f7fa;           /* light background */
+            --text-main: #1f2933;
+            --text-muted: #6b7b93;
+            --card-bg: #ffffff;
+            --border-soft: #dde4ee;
         }
 
-        /* Header with logos and dropdown nav on top right */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text-main);
+        }
+
+        /* Header */
         #header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 20px;
-            border-bottom: 1px solid #ccc;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #003459, #007ea7);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         #header-left {
@@ -24,75 +46,251 @@
             align-items: center;
         }
 
-        /* Make the main logo larger */
         #main-logo {
-            height: 80px;          /* bigger logo */
-            margin-right: 10px;
+            height: 80px;
+            margin-right: 16px;
         }
 
-        /* Make the association logos smaller */
         .assoc-logo {
-            height: 50px;          /* smaller than main logo */
+            height: 52px;
             margin-right: 10px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.1);
+            padding: 3px;
+        }
+
+        #header-text {
+            display: flex;
+            flex-direction: column;
+            margin-left: 8px;
+        }
+
+        #header-text h1 {
+            margin: 0;
+            font-size: 1.4rem;
+            letter-spacing: 0.03em;
+        }
+
+        #header-text span {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.85);
         }
 
         #header-right {
             text-align: right;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         #header-right label {
-            color: #333;
             font-size: 0.9em;
-            margin-right: 5px;
+            color: rgba(255,255,255,0.9);
         }
 
         #nav-select {
-            padding: 5px;
+            padding: 6px 10px;
             font-size: 0.95em;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.15);
+            color: #ffffff;
+            outline: none;
+            backdrop-filter: blur(4px);
         }
 
-        /* Main Content layout */
-        #main {
+        #nav-select option {
+            color: #000;
+        }
+
+        #nav-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(244,180,0,0.35);
+        }
+
+        /* Main layout */
+        #page {
+            max-width: 1100px;
+            margin: 24px auto 0 auto;
+            padding: 0 20px 32px;
+        }
+
+        #hero-card {
             display: flex;
-            padding: 20px;
-            box-sizing: border-box;
+            flex-wrap: wrap;
+            background: var(--card-bg);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+            overflow: hidden;
         }
 
         #blurb {
             flex: 2;
-            padding-right: 20px;
+            padding: 28px 28px 24px 28px;
+            min-width: 260px;
+        }
+
+        #blurb h2 {
+            margin: 0 0 12px;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
         }
 
         #blurb p {
-            line-height: 1.5;
+            line-height: 1.6;
+            margin: 0 0 12px;
+            color: var(--text-main);
+        }
+
+        #blurb p.small {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        #cta-row {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 9px 18px;
+            border-radius: 999px;
+            border: none;
+            background: var(--accent);
+            color: #1f2933;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(244,180,0,0.4);
+            transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+        }
+
+        .btn-primary:hover {
+            background: #ffc94a;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(244,180,0,0.5);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--primary);
+            background: #ffffff;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary-dark);
         }
 
         #crowleys-image {
             flex: 1;
-            text-align: right;
+            min-width: 260px;
+            position: relative;
+            background: radial-gradient(circle at top left, #e0f4ff 0, #c3e0ff 40%, #b0d0ff 100%);
         }
 
         #crowleys-image img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        /* Brokers section placeholder */
+        #crowleys-tag {
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+            background: rgba(0,0,0,0.55);
+            color: #ffffff;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+        }
+
+        /* Links inside text */
+        a {
+            color: var(--primary);
+        }
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Brokers section */
         #brokers {
-            border-top: 1px solid #ccc;
-            margin: 20px;
-            padding-top: 20px;
-            min-height: 150px; /* space for pictures & contact info */
+            margin-top: 24px;
+            padding: 18px 20px 24px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 14px;
+            border: 1px dashed var(--border-soft);
+        }
+
+        #brokers h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+
+        #brokers p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
         /* Footer */
         #footer {
-            background-color: #f0f0f0;
+            background: #0b1727;
+            color: rgba(255,255,255,0.85);
             text-align: center;
-            padding: 10px 0;
-            font-size: 0.9em;
-            border-top: 1px solid #ccc;
+            padding: 14px 10px 16px;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(148,163,184,0.3);
+            margin-top: 24px;
+        }
+
+        #footer div + div {
+            margin-top: 2px;
+            color: rgba(148,163,184,0.9);
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            #header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            #header-right {
+                align-self: stretch;
+                justify-content: flex-end;
+            }
+
+            #hero-card {
+                flex-direction: column;
+            }
+
+            #crowleys-image {
+                height: 220px;
+            }
         }
     </style>
     <script>
@@ -106,15 +304,19 @@
 </head>
 <body>
 
-    <!-- Header with logos (left) and dropdown navigation (right) -->
+    <!-- Header -->
     <div id="header">
         <div id="header-left">
             <img id="main-logo" src="images/logo.gif" alt="Sailboat Sales Co. Logo">
             <img class="assoc-logo" src="images/yba.jpg" alt="Yacht Brokers Association Crest">
             <img class="assoc-logo" src="images/yw.jpg" alt="Member of Yachtworld Logo">
+            <div id="header-text">
+                <h1>Sailboat Sales Co.</h1>
+                <span>Chicago's largest and oldest yacht brokerage</span>
+            </div>
         </div>
         <div id="header-right">
-            <label for="nav-select">Navigation:</label>
+            <label for="nav-select">Navigate:</label>
             <select id="nav-select" onchange="goToPage(this)">
                 <option value="">Select a page...</option>
                 <option value="index.html">Home</option>
@@ -130,33 +332,49 @@
         </div>
     </div>
 
-    <!-- Main content area -->
-    <div id="main">
-        <!-- Blurb text -->
-        <div id="blurb">
-            <p>
-                Welcome to Sailboat Sales Co., Chicago's largest and oldest yacht brokerage, associated with Crowley's Yacht Yard - Chicago's finest full-service boatyard. As a result, we provide a comprehensive approach to selecting and outfitting your new yacht.
-            </p>
-            <p>
-                Looking to buy a used boat? Sailboat Sales Co. is proud to offer an extensive selection of used boats for sale in Chicago, Illinois, Lake Michigan, the Great Lakes, and the USA.
-            </p>
-            <p>
-                Start shopping for a <a href="brokerage-sailboats.html">sailboat</a> or a <a href="brokerage-powerboats.html">powerboat</a> today!
-            </p>
-            <p>
-                Looking to sell your boat and move up? Now is the right time to list. Let Sailboat Sales Co. assist you in finding a buyer for your boat. Call (773) 221-8880 to get started today.
-            </p>
+    <!-- Page content -->
+    <div id="page">
+        <!-- Hero / main card -->
+        <div id="hero-card">
+            <div id="blurb">
+                <h2>Welcome aboard.</h2>
+                <p>
+                    Welcome to Sailboat Sales Co., Chicago's largest and oldest yacht brokerage, associated with Crowley's Yacht Yard - Chicago's finest full-service boatyard. As a result, we provide a comprehensive approach to selecting and outfitting your new yacht.
+                </p>
+                <p>
+                    Looking to buy a used boat? Sailboat Sales Co. is proud to offer an extensive selection of used boats for sale in Chicago, Illinois, Lake Michigan, the Great Lakes, and the USA.
+                </p>
+                <p>
+                    Start shopping for a <a href="brokerage-sailboats.html">sailboat</a> or a <a href="brokerage-powerboats.html">powerboat</a> today!
+                </p>
+                <p>
+                    Looking to sell your boat and move up? Now is the right time to list. Let Sailboat Sales Co. assist you in finding a buyer for your boat. Call (773) 221-8880 to get started today.
+                </p>
+                <div id="cta-row">
+                    <a class="btn-primary" href="brokerage-sailboats.html">Browse Sailboats</a>
+                    <a class="btn-secondary" href="brokerage-powerboats.html">Browse Power Boats</a>
+                </div>
+                <p class="small" style="margin-top: 10px;">
+                    Serving Chicago, Illinois, Lake Michigan, the Great Lakes, and beyond.
+                </p>
+            </div>
+
+            <div id="crowleys-image">
+                <img src="images/Crowleys.jpg" alt="Crowley's Yacht Yard">
+                <div id="crowleys-tag">
+                    In partnership with Crowley's Yacht Yard
+                </div>
+            </div>
         </div>
 
-        <!-- Crowley's image -->
-        <div id="crowleys-image">
-            <img src="images/Crowleys.jpg" alt="Crowley's Yacht Yard">
+        <!-- Brokers placeholder section -->
+        <div id="brokers">
+            <h3>Our Brokers</h3>
+            <p>
+                Space reserved for broker photos and contact information.
+                You can showcase each broker here with a headshot, phone number, and email.
+            </p>
         </div>
-    </div>
-
-    <!-- Brokers placeholder section -->
-    <div id="brokers">
-        <!-- Space for broker pictures and contact info -->
     </div>
 
     <!-- Footer -->
