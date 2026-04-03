@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sailboat Sales Co. - Brokerage Sailboats</title>
+    <style>
+        :root {
+            --primary: #005b96;
+            --primary-dark: #00416b;
+            --accent: #f4b400;
+            --bg: #f5f7fa;
+            --text-main: #1f2933;
+            --text-muted: #6b7b93;
+            --card-bg: #ffffff;
+            --border-soft: #dde4ee;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text-main);
+        }
+
+        /* Header */
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #003459, #007ea7);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        #header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        #main-logo {
+            height: 80px;
+            margin-right: 16px;
+        }
+
+        #header-text {
+            display: flex;
+            flex-direction: column;
+            margin-left: 8px;
+        }
+
+        #header-text h1 {
+            margin: 0;
+            font-size: 1.4rem;
+            letter-spacing: 0.03em;
+        }
+
+        #header-text span {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.85);
+        }
+
+        #header-right {
+            text-align: right;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #header-right label {
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.9);
+        }
+
+        #nav-select {
+            padding: 6px 10px;
+            font-size: 0.95em;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.15);
+            color: #ffffff;
+            outline: none;
+            backdrop-filter: blur(4px);
+        }
+
+        #nav-select option { color: #000; }
+
+        #nav-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(244,180,0,0.35);
+        }
+
+        /* Page layout */
+        #page {
+            max-width: 1100px;
+            margin: 24px auto 0 auto;
+            padding: 0 20px 32px;
+        }
+
+        #brokerage-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+            padding: 28px 28px 24px 28px;
+        }
+
+        #brokerage-card h2 {
+            margin: 0 0 16px;
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+        }
+
+        #brokerage-card p {
+            line-height: 1.7;
+            margin: 0 0 14px;
+            color: var(--text-main);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Table styles */
+        .boats-table-wrapper {
+            margin-top: 18px;
+            overflow-x: auto;
+        }
+
+        table.boats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            background: #ffffff;
+        }
+
+        table.boats-table thead {
+            background: #e2ecf7;
+        }
+
+        table.boats-table th,
+        table.boats-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--border-soft);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        table.boats-table th {
+            font-weight: 600;
+            color: var(--primary-dark);
+            white-space: nowrap;
+        }
+
+        table.boats-table td.price {
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        table.boats-table td.picture a {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        table.boats-table td.picture img {
+            max-width: 140px;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid var(--border-soft);
+        }
+
+        /* Footer */
+        #footer {
+            background: #0b1727;
+            color: rgba(255,255,255,0.85);
+            text-align: center;
+            padding: 14px 10px 16px;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(148,163,184,0.3);
+            margin-top: 24px;
+        }
+
+        #footer div + div {
+            margin-top: 2px;
+            color: rgba(148,163,184,0.9);
+        }
+
+        @media (max-width: 768px) {
+            #header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            #header-right {
+                align-self: stretch;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+    <script>
+        function goToPage(select) {
+            var url = select.value;
+            if (url) {
+                window.location.href = url;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var nav = document.getElementById('nav-select');
+            if (nav) {
+                nav.value = 'brokerage-sailboats.html';
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="header">
+        <div id="header-left">
+            <img id="main-logo" src="images/logo.gif" alt="Sailboat Sales Co. Logo">
+            <div id="header-text">
+                <h1>Sailboat Sales Co.</h1>
+                <span>Chicago's largest and oldest yacht brokerage</span>
+            </div>
+        </div>
+        <div id="header-right">
+            <label for="nav-select">Navigate:</label>
+            <select id="nav-select" onchange="goToPage(this)">
+                <option value="">Select a page...</option>
+                <option value="index.html">Home</option>
+                <option value="brokerage-sailboats.html">Brokerage Sailboats</option>
+                <option value="brokerage-powerboats.html">Brokerage Power Boats</option>
+                <option value="our-story.html">Our Story</option>
+                <option value="for-buyers.html">For Buyers</option>
+                <option value="for-sellers.html">For Sellers</option>
+                <option value="faq.html">FAQ</option>
+                <option value="links.html">Links</option>
+                <option value="crowleys.html">Crowley's</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Page content -->
+    <div id="page">
+        <div id="brokerage-card">
+            <h2>Brokerage Sailboats</h2>
+
+            <p>
+                Sailboat Sales Co. at Crowley's Yacht Yard in Chicago has the largest selection of used sailboats
+                for sale in Chicago. Find out how we can help you buy a boat or sell a boat. For information on any
+                of these boats for sale, or possibly others not listed, call us or use our
+                <a href="https://www.yachtworld.com/boats-for-sale/broker-sailboat-sales-co-14312/"
+                   target="_blank" rel="noopener noreferrer">YachtWorld</a>
+                page to get in contact with us.
+            </p>
+
+            <div class="boats-table-wrapper">
+                <table class="boats-table">
+                    <thead>
+                        <tr>
+                            <th>LOA</th>
+                            <th>Type</th>
+                            <th>Year</th>
+                            <th>Name</th>
+                            <th>Remarks</th>
+                            <th>Price</th>
+                            <th>Picture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>34'</td>
+                            <td>Sabre 34 MK I</td>
+                            <td>1982</td>
+                            <td>
+                                <a href="https://www.yachtworld.com/yacht/1982-sabre-34-10129390/"
+                                   target="_blank" rel="noopener noreferrer">
+                                    1982 Sabre 34
+                                </a>
+                            </td>
+                            <td>
+                                Well-built classic Sabre 34 MK I with timeless lines, comfortable cruising layout,
+                                and the performance to enjoy both daysailing and longer Great Lakes passages.
+                            </td>
+                            <td class="price">
+                                Call for price
+                            </td>
+                            <td class="picture">
+                                <a href="https://www.yachtworld.com/yacht/1982-sabre-34-10129390/"
+                                   target="_blank" rel="noopener noreferrer">
+                                    <img src="images/1982-sabre-34.jpg"
+                                         alt="1982 Sabre 34 MK I sailboat for sale">
+                                </a>
+                            </td>
+                        </tr>
+                        <!-- Add additional boat rows here as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <div>Sailboat Sales Co - 3434 E. 95th St - Chicago Illinois 60617 - Phone 773.221.8880</div>
+        <div>All Rights Reserved, ©1996 - 2026 Sailboat Sales Co.</div>
+    </div>
+
+</body>
+</html>
