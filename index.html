@@ -5,10 +5,10 @@
     <title>Sailboat Sales Co. - Chicago Yacht Brokerage</title>
     <style>
         :root {
-            --primary: #005b96;      /* deep nautical blue */
+            --primary: #005b96;
             --primary-dark: #00416b;
-            --accent: #f4b400;       /* warm accent */
-            --bg: #f5f7fa;           /* light background */
+            --accent: #f4b400;
+            --bg: #f5f7fa;
             --text-main: #1f2933;
             --text-muted: #6b7b93;
             --card-bg: #ffffff;
@@ -46,23 +46,45 @@
             align-items: center;
         }
 
+        /* Shared circular badge styling */
+        .logo-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 20%, #ffffff 0, #e4edf7 45%, rgba(228,237,247,0.0) 75%);
+            padding: 6px;
+            margin-right: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        /* Main logo slightly larger and in a slightly larger badge */
+        #main-logo-badge {
+            width: 96px;
+            height: 96px;
+        }
+
         #main-logo {
-            height: 80px;
-            margin-right: 16px;
+            max-height: 70px;
+            width: auto;
+        }
+
+        /* Association logos smaller */
+        .assoc-logo-badge {
+            width: 70px;
+            height: 70px;
         }
 
         .assoc-logo {
-            height: 52px;
-            margin-right: 10px;
-            border-radius: 4px;
-            background: rgba(255,255,255,0.1);
-            padding: 3px;
+            max-height: 48px;
+            width: auto;
         }
 
         #header-text {
             display: flex;
             flex-direction: column;
-            margin-left: 8px;
+            margin-left: 4px;
         }
 
         #header-text h1 {
@@ -225,7 +247,6 @@
             font-size: 0.75rem;
         }
 
-        /* Links inside text */
         a {
             color: var(--primary);
         }
@@ -233,7 +254,6 @@
             color: var(--primary-dark);
         }
 
-        /* Brokers section */
         #brokers {
             margin-top: 24px;
             padding: 18px 20px 24px;
@@ -255,7 +275,6 @@
             color: var(--text-muted);
         }
 
-        /* Footer */
         #footer {
             background: #0b1727;
             color: rgba(255,255,255,0.85);
@@ -271,7 +290,6 @@
             color: rgba(148,163,184,0.9);
         }
 
-        /* Responsive tweaks */
         @media (max-width: 768px) {
             #header {
                 flex-direction: column;
@@ -307,9 +325,17 @@
     <!-- Header -->
     <div id="header">
         <div id="header-left">
-            <img id="main-logo" src="images/logo.gif" alt="Sailboat Sales Co. Logo">
-            <img class="assoc-logo" src="images/yba.jpg" alt="Yacht Brokers Association Crest">
-            <img class="assoc-logo" src="images/yw.jpg" alt="Member of Yachtworld Logo">
+            <!-- Main logo in a larger circular badge -->
+            <div id="main-logo-badge" class="logo-badge">
+                <img id="main-logo" src="images/logo.gif" alt="Sailboat Sales Co. Logo">
+            </div>
+            <!-- Association logos in smaller circular badges -->
+            <div class="assoc-logo-badge logo-badge">
+                <img class="assoc-logo" src="images/yba.jpg" alt="Yacht Brokers Association Crest">
+            </div>
+            <div class="assoc-logo-badge logo-badge">
+                <img class="assoc-logo" src="images/yw.jpg" alt="Member of Yachtworld Logo">
+            </div>
             <div id="header-text">
                 <h1>Sailboat Sales Co.</h1>
                 <span>Chicago's largest and oldest yacht brokerage</span>
@@ -360,7 +386,7 @@
             </div>
 
             <div id="crowleys-image">
-                <img src="images/crowleys.jpg" alt="Crowley's Yacht Yard">
+                <img src="images/Crowleys.jpg" alt="Crowley's Yacht Yard">
                 <div id="crowleys-tag">
                     In partnership with Crowley's Yacht Yard
                 </div>
