@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sailboat Sales Co. - Our Story</title>
+    <style>
+        :root {
+            --primary: #005b96;      /* deep nautical blue */
+            --primary-dark: #00416b;
+            --accent: #f4b400;       /* warm accent */
+            --bg: #f5f7fa;           /* light background */
+            --text-main: #1f2933;
+            --text-muted: #6b7b93;
+            --card-bg: #ffffff;
+            --border-soft: #dde4ee;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text-main);
+        }
+
+        /* Header */
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #003459, #007ea7);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        #header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Main logo bigger */
+        #main-logo {
+            height: 80px;
+            margin-right: 16px;
+        }
+
+        #header-text {
+            display: flex;
+            flex-direction: column;
+            margin-left: 8px;
+        }
+
+        #header-text h1 {
+            margin: 0;
+            font-size: 1.4rem;
+            letter-spacing: 0.03em;
+        }
+
+        #header-text span {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.85);
+        }
+
+        #header-right {
+            text-align: right;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #header-right label {
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.9);
+        }
+
+        #nav-select {
+            padding: 6px 10px;
+            font-size: 0.95em;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.15);
+            color: #ffffff;
+            outline: none;
+            backdrop-filter: blur(4px);
+        }
+
+        #nav-select option {
+            color: #000;
+        }
+
+        #nav-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(244,180,0,0.35);
+        }
+
+        /* Page layout */
+        #page {
+            max-width: 900px;
+            margin: 24px auto 0 auto;
+            padding: 0 20px 32px;
+        }
+
+        #story-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+            padding: 28px 28px 24px 28px;
+        }
+
+        #story-card h2 {
+            margin: 0 0 16px;
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+        }
+
+        #story-card p {
+            line-height: 1.7;
+            margin: 0 0 14px;
+            color: var(--text-main);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        #footer {
+            background: #0b1727;
+            color: rgba(255,255,255,0.85);
+            text-align: center;
+            padding: 14px 10px 16px;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(148,163,184,0.3);
+            margin-top: 24px;
+        }
+
+        #footer div + div {
+            margin-top: 2px;
+            color: rgba(148,163,184,0.9);
+        }
+
+        @media (max-width: 768px) {
+            #header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            #header-right {
+                align-self: stretch;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+    <script>
+        function goToPage(select) {
+            var url = select.value;
+            if (url) {
+                window.location.href = url;
+            }
+        }
+
+        // keep navigation selection in sync if desired
+        document.addEventListener('DOMContentLoaded', function () {
+            var nav = document.getElementById('nav-select');
+            if (nav) {
+                nav.value = 'our-story.html';
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="header">
+        <div id="header-left">
+            <img id="main-logo" src="images/logo.gif" alt="Sailboat Sales Co. Logo">
+            <div id="header-text">
+                <h1>Sailboat Sales Co.</h1>
+                <span>Chicago's largest and oldest yacht brokerage</span>
+            </div>
+        </div>
+        <div id="header-right">
+            <label for="nav-select">Navigate:</label>
+            <select id="nav-select" onchange="goToPage(this)">
+                <option value="">Select a page...</option>
+                <option value="index.html">Home</option>
+                <option value="brokerage-sailboats.html">Brokerage Sailboats</option>
+                <option value="brokerage-powerboats.html">Brokerage Power Boats</option>
+                <option value="our-story.html">Our Story</option>
+                <option value="for-buyers.html">For Buyers</option>
+                <option value="for-sellers.html">For Sellers</option>
+                <option value="faq.html">FAQ</option>
+                <option value="links.html">Links</option>
+                <option value="crowleys.html">Crowley's</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Page content -->
+    <div id="page">
+        <div id="story-card">
+            <h2>Our Story</h2>
+
+            <p>
+                Sailboat Sales Co. was founded in the mid 1960's and has been in continuous operation ever since.
+                The present management team, headed by Bruce Rosenzweig, began full-time operation in 1974, working
+                out of AAA Marina on Chicago's near north side. In the summer of 1978, the staff of Sailboat Sales
+                teamed up with widely respected sailmaker Grant Crowley and purchased seven riverfront acres on the
+                city's near southwest side.
+            </p>
+
+            <p>
+                At the very beginning, 
+                <a href="https://crowleys.com/" target="_blank" rel="noopener noreferrer">Crowley's Yacht Yard</a>
+                stored and serviced over 250 sailboats. At that time, Sailboat Sales Co. was a major dealer for
+                Florida-based Irwin Yachts, Hunter Marine, Morgan Yachts, and the Texas-built Petersen 34 racer/cruiser.
+            </p>
+
+            <p>
+                Shortly thereafter, the new and popular J-Boat line was added, quickly followed by the world class
+                Maine-built Sabre Yachts. The Canadian Nonsuch catboats came next. In 1993, we became proud
+                representatives of the revolutionary line of Freedom Yachts, followed a year later by the line
+                of traditional Island Packet cruising yachts.
+            </p>
+
+            <p>
+                Sailboat Sales Co. went on to represent the finest American-built sailboats available such as
+                Island Packet Yachts and the Carroll Marine-built Farr designed Mumm 30. Sailboat Sales Co. continues
+                to represent a wide variety of 
+                <a href="brokerage-sailboats.html">pre-owned brokerage boat</a>
+                s, with a large selection right here at Crowley's.
+            </p>
+
+            <p>
+                Over time, the storage and full service operation at Crowley's grew to thirteen acres servicing over
+                650 boats. In 2004, Crowley's finally outgrew the Corbett Street location, and 2005 marked the first
+                year in our new location at 95th Street and Ewing Avenue, a short river trip from Chicago's Calumet Harbor.
+            </p>
+
+            <p>
+                Read an article called 
+                <a href="pdf/rehabforraceboats.pdf" target="_blank" rel="noopener noreferrer">Rehab for Raceboats</a>
+                from the May 2009 issue of Sailing World magazine.
+            </p>
+
+            <p>
+                Our staff is comprised solely of experienced sailors with a wide variety of talents, ranging from
+                racing to cruising and everything in between. Few firms have as much on-the-water and technical
+                experience as Sailboat Sales Co.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <div>Sailboat Sales Co - 3434 E. 95th St - Chicago Illinois 60617 - Phone 773.221.8880</div>
+        <div>All Rights Reserved, ©1996 - 2026 Sailboat Sales Co.</div>
+    </div>
+
+</body>
+</html>
